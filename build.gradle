@@ -28,7 +28,7 @@ apply plugin: 'org.spongepowered.mixin'
 def envVersion = System.getenv("version")
 version = envVersion == null ? "dev" : envVersion
 group = 'com.github.alcatrazEscapee' // group name set for jitpack
-archivesBaseName = "${mod_id}"
+archivesBaseName = 'chocolate'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -104,13 +104,15 @@ mixin {
 curseforge {
     def envApiKey = System.getenv('CURSEFORGE_API_KEY')
     if (envApiKey == null) {
-        println 'Unable to locate api key in env variable'
+        println 'No Curseforge API Key'
+        envApiKey = 'kaput'
         return
     }
     project {
         apiKey = envApiKey
-        id = '12341234'  // todo: project ID
-        changelog = '[This was an automatic build. For changelogs, see https://github.com/alcatrazEscapee/chocolate/releases]'
+        id = '416306'
+        changelog = "[Release Notes ${version}](https://github.com/alcatrazEscapee/Chocolate/releases/tag/${version})"
+        changelogType = 'markdown'
         releaseType = 'release'
         addGameVersion "${mc_version}"
     }

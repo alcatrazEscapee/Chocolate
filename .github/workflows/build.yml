@@ -35,11 +35,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.get_version.outputs.result }}
-        release_name: Chocolate 1.16.3-${{ steps.get_version.outputs.result }}
+        release_name: Chocolate ${{ steps.get_version.outputs.result }}
         body: |
           [This was an automatic build]
           // todo: add changelog
-        draft: false
+        draft: true
         prerelease: false
     - name: Upload Main Jar
       id: upload_main_jar

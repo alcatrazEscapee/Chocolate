@@ -14,5 +14,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "tfc.refmap.json"
+  "refmap": "chocolate.refmap.json"
 }
