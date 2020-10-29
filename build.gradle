@@ -85,8 +85,7 @@ jar {
     manifest {
         attributes ([
                 "Implementation-Version": "${version}",
-                "MixinConfigs": "${mod_id}.mixins.json",
-                "FMLModType": "LIBRARY"
+                "MixinConfigs": "${mod_id}.mixins.json"
         ])
     }
 }
