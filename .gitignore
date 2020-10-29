@@ -1,19 +1,20 @@
 *
 !*/
-!.gitignore
-!.editorconfig
+!/.gitignore
+!/.editorconfig
 
 # Github and build script
-!.github/**/*.md
-!.github/**/*.yml
-!gradle/wrapper/gradle-wrapper.jar
-!gradle/wrapper/gradle-wrapper.properties
-!src/**
+!/.github/**/*.md
+!/.github/**/*.yml
+!/gradle/wrapper/gradle-wrapper.jar
+!/gradle/wrapper/gradle-wrapper.properties
+!/src/**
 
 # Metadata
-!build.gradle
-!gradle.properties
-!gradlew
-!gradlew.bat
-!LICENSE.txt
-!README.md
+!/build.gradle
+!/gradle.properties
+!/gradlew
+!/gradlew.bat
+!/LICENSE.md
+!/README.md
+!/icon.png
