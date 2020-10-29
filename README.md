@@ -23,3 +23,23 @@ I am open to fixing other potential issues in this mod. However, due to my own a
 - It needs to be deterministically fixable, without breaking vanilla contracts or causing undue pain to other mods which may rely on some vanilla behavior.
 - It should be a high visibility or high impact bug that predominantly affects modded or data pack world generation.
 - It is something which cannot be avoided or skirted around using the standard set of tools which are available for mods.
+
+### Usage (For Modders)
+
+To add this mod as a dependency in dev, first add jitpack to your `repositories` section. **Do not** add this to your `buildscript` section!
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+
+Secondly, add the version of Chocolate you desire to the `dependencies` section. `VERSION` and `MINECRAFT_VERSION` must be replaced with the relevant versions, or another valid jitpack version identifier (such as a commit hash). Make sure to include `transitive = false` due to [ForgeGradle#584](https://github.com/MinecraftForge/ForgeGradle/issues/584). Latest tagged versions can be checked in the "Releases" tab on github.
+
+```groovy
+dependencies {
+    testImplementation fg.deobf('com.github.alcatrazEscapee:chocolate:VERSION-MINECRAFT_VERSION') {
+        transitive = false
+    }
+}
+```
