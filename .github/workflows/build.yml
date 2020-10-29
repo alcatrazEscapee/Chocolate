@@ -26,6 +26,7 @@ jobs:
     - name: Build
       run: ./gradlew build
       env:
+        OFFICIAL_MAPPINGS: true
         VERSION: ${{ steps.get_version.outputs.result }}
     - name: Create Release
       id: create_release
@@ -52,6 +53,7 @@ jobs:
         asset_content_type: application/java-archive
     - name: Upload
       run: ./gradlew curseforge
-      env: 
+      env:
+        OFFICIAL_MAPPINGS: true
         CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
         VERSION: ${{ steps.get_version.outputs.result }}
