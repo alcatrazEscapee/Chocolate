@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.alcatrazescapee.chocolate.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "world.biome.BiomeContainerMixin",
+    "world.biome.BiomeMixin",
+    "world.biome.BiomeRegistryMixin",
+    "world.chunk.storage.ChunkSerializerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "tfc.refmap.json"
+}

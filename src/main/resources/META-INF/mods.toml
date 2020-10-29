@@ -1,0 +1,36 @@
+
+# Loader metadata
+modLoader="javafml"
+loaderVersion="[34,)"
+license="MIT"
+issueTrackerURL="https://github.com/alcatrazEscapee/chocolate/issues" #optional
+
+[[mods]]
+    modId="chocolate" #mandatory
+    version="${file.jarVersion}" #mandatory
+    displayName="Chocolate" #mandatory
+    #updateJSONURL="http://myurl.me/" #optional
+    displayURL="https://minecraft.curseforge.com/projects/chocolate" #optional
+    #logoFile="icon.png" #optional
+    #credits="As requested by reddit." #optional
+    authors="AlcatrazEscapee" #optional
+    description='''
+    *Vanilla is good - but chocolate is better. ;)*
+
+    This mod exists to fix vanilla bugs - mostly to do with custom world generation - which have a much larger impact on modded.
+    '''
+
+# dependencies
+[[dependencies.chocolate]]
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[34,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.chocolate]]
+    modId="minecraft" #mandatory
+    mandatory=true #mandatory
+    versionRange="[1.16.3,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
