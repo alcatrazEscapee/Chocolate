@@ -5,7 +5,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeMaker;
 import net.minecraft.world.biome.Biomes;
 
-import com.alcatrazescapee.chocolate.common.biome.BiomeBridge;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

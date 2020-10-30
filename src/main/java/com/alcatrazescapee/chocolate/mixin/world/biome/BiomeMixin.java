@@ -11,7 +11,6 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import com.alcatrazescapee.chocolate.common.biome.BiomeBridge;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Biome.class)
@@ -41,11 +40,11 @@ public abstract class BiomeMixin extends ForgeRegistryEntry.UncheckedRegistryEnt
                 if (server != null)
                 {
                     final Registry<Biome> registry = server.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-                    final ResourceLocation id = registry.getKey((Biome)(Object)this);
-                    final int intId = registry.getId((Biome)(Object)this);
+                    final ResourceLocation id = registry.getKey((Biome) (Object) this);
+                    final int intId = registry.getId((Biome) (Object) this);
                     error.append(" The current registry reported the biome as [").append(id).append("] with an id of [").append(intId).append(']');
                 }
-                final ResourceLocation forgeId = ForgeRegistries.BIOMES.getKey((Biome)(Object)this);
+                final ResourceLocation forgeId = ForgeRegistries.BIOMES.getKey((Biome) (Object) this);
                 if (forgeId != null)
                 {
                     error.append(" The Forge registry reported the biome as [").append(forgeId).append(']');

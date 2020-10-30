@@ -20,6 +20,11 @@ public final class ChocolateConfig
         return specPair.getLeft();
     }
 
+    public enum Severity
+    {
+        NONE, LOG, THROW
+    }
+
     public static class Server
     {
         public final ForgeConfigSpec.EnumValue<Severity> onBiomesRemovedFromChunks;
@@ -45,10 +50,5 @@ public final class ChocolateConfig
 
             builder.pop();
         }
-    }
-
-    public enum Severity
-    {
-        NONE, LOG, THROW
     }
 }

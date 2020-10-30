@@ -9,10 +9,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeContainer;
 import net.minecraft.world.biome.BiomeMaker;
 import net.minecraft.world.biome.Biomes;
-
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
-import com.alcatrazescapee.chocolate.common.biome.BiomeContainerBridge;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

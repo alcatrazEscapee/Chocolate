@@ -27,15 +27,15 @@ public abstract class BiomeContainerMixin implements BiomeContainerBridge
     private Registry<Biome> chocolate$biomeRegistry;
 
     @Override
-    public Biome[] bridge$getInternalBiomeArray()
-    {
-        return biomes;
-    }
-
-    @Override
     public Registry<Biome> bridge$getActualBiomeRegistry()
     {
         return chocolate$biomeRegistry;
+    }
+
+    @Override
+    public Biome[] bridge$getInternalBiomeArray()
+    {
+        return biomes;
     }
 
     /**
@@ -73,7 +73,7 @@ public abstract class BiomeContainerMixin implements BiomeContainerBridge
             if (biome != lastBiome)
             {
                 lastBiome = biome;
-                lastId = chocolate$biomeRegistry.getId(chocolate$biomeRegistry.get(((BiomeBridge)(Object) biome).bridge$getKey()));
+                lastId = chocolate$biomeRegistry.getId(chocolate$biomeRegistry.get(((BiomeBridge) (Object) biome).bridge$getKey()));
             }
             biomeIds[i] = lastId;
         }

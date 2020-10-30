@@ -2,7 +2,6 @@ package com.alcatrazescapee.chocolate.common.biome;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
 import javax.annotation.Nullable;
 
 import org.apache.logging.log4j.LogManager;
@@ -116,7 +115,7 @@ public final class BiomeContainerSerializer
      * We are then free to assume this process will hold for all biomes found in the biome container at this point
      *
      * @param biomeContainer The biome container
-     * @param nbt The nbt to put extra palette data onto
+     * @param nbt            The nbt to put extra palette data onto
      */
     @SuppressWarnings("ConstantConditions")
     public static void write(@Nullable BiomeContainer biomeContainer, CompoundNBT nbt)
