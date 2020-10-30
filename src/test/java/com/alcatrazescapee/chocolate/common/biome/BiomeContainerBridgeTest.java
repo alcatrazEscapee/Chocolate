@@ -1,4 +1,4 @@
-package com.alcatrazescapee.chocolate.common;
+package com.alcatrazescapee.chocolate.common.biome;
 
 import java.util.Arrays;
 

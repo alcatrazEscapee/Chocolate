@@ -1,4 +1,4 @@
-package com.alcatrazescapee.chocolate.common;
+package com.alcatrazescapee.chocolate.common.biome;
 
 import java.util.Arrays;
 import java.util.concurrent.Callable;
@@ -16,6 +16,7 @@ import net.minecraft.world.biome.provider.SingleBiomeProvider;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import com.alcatrazescapee.chocolate.Chocolate;
+import com.alcatrazescapee.chocolate.common.ChocolateConfig;
 import com.alcatrazescapee.chocolate.common.biome.BiomeContainerBridge;
 import com.alcatrazescapee.chocolate.common.biome.BiomeContainerSerializer;
 import org.junit.jupiter.api.Test;

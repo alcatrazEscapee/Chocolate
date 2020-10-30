@@ -1,4 +1,4 @@
-package com.alcatrazescapee.chocolate.common;
+package com.alcatrazescapee.chocolate.common.biome;
 
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
