@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import com.alcatrazescapee.chocolate.common.biome.BiomeBridge;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Biome.class)

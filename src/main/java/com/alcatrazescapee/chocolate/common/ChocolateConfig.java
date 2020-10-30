@@ -22,17 +22,33 @@ public final class ChocolateConfig
 
     public static class Server
     {
-        public final ForgeConfigSpec.BooleanValue logBiomesRemovedFromChunks;
-        public final ForgeConfigSpec.BooleanValue logIdsMissingFromPalette;
+        public final ForgeConfigSpec.EnumValue<Severity> onBiomesRemovedFromChunks;
+        public final ForgeConfigSpec.EnumValue<Severity> onIdsMissingFromPalette;
 
         Server(ForgeConfigSpec.Builder builder)
         {
             builder.push("logging");
 
-            logBiomesRemovedFromChunks = builder.comment("Should Chocolate log errors when a biome was found saved to a chunk, but there was no biome of that name found in the registry? (This will happen when you remove biomes.)").define("logBiomesRemovedFromChunks", true);
-            logIdsMissingFromPalette = builder.comment("Should Chocolate log errors when a biome ID is found in the serialization but not recorded in the palette? (This will happen when the serialization contract was broken)").define("logIdsMissingFromPalette", true);
+            onBiomesRemovedFromChunks = builder.comment(
+                "How should Chocolate handle biome IDs which are present in a chunk palette, but there was no biome of that name found in the registry? (This will happen when you remove biomes.)",
+                "NONE = Default vanilla behavior (regenerate the biome)",
+                "LOG = Default behavior plus logging an error message",
+                "THROW = Forcibly throw an error (crash)"
+            ).defineEnum("onBiomesRemovedFromChunks", Severity.LOG, Severity.values());
+
+            onIdsMissingFromPalette = builder.comment(
+                "How should Chocolate handle biome IDs found in the biome data but not recorded in the palette? (This will happen when the serialization contract was broken by external means)",
+                "NONE = Default vanilla behavior (regenerate the biome)",
+                "LOG = Default behavior plus logging an error message",
+                "THROW = Forcibly throw an error (crash)"
+            ).defineEnum("onIdsMissingFromPalette", Severity.LOG, Severity.values());
 
             builder.pop();
         }
+    }
+
+    public enum Severity
+    {
+        NONE, LOG, THROW
     }
 }

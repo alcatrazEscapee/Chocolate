@@ -34,13 +34,13 @@ public abstract class ChunkSerializerMixin
     private static BiomeContainer redirect$read$newBiomeContainer(IObjectIntIterable<Biome> biomeRegistry, ChunkPos chunkPos, BiomeProvider biomeProvider, @Nullable int[] biomeData, ServerWorld worldIn, TemplateManager templateManagerIn, PointOfInterestManager poiManager, ChunkPos unused, CompoundNBT rootNbt)
     {
         final CompoundNBT levelNbt = rootNbt.getCompound("Level");
-        return BiomeContainerSerializer.readBiomeContainer(worldIn.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY), chunkPos, biomeProvider, biomeData, levelNbt);
+        return BiomeContainerSerializer.read(worldIn.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY), chunkPos, biomeProvider, biomeData, levelNbt);
     }
 
     @Inject(method = "write", at = @At("RETURN"))
     private static void inject$write(ServerWorld worldIn, IChunk chunkIn, CallbackInfoReturnable<CompoundNBT> cir)
     {
         final CompoundNBT levelNbt = cir.getReturnValue().getCompound("Level");
-        BiomeContainerSerializer.writeBiomeContainer(chunkIn.getBiomes(), levelNbt);
+        BiomeContainerSerializer.write(chunkIn.getBiomes(), levelNbt);
     }
 }
