@@ -2,14 +2,14 @@
 modLoader = "javafml"
 loaderVersion = "[34,)"
 license = "MIT"
-issueTrackerURL = "https://github.com/alcatrazEscapee/chocolate/issues" #optional
+issueTrackerURL = "https://github.com/alcatrazEscapee/Chocolate/issues" #optional
 
 [[mods]]
     modId = "chocolate" #mandatory
     version = "${file.jarVersion}" #mandatory
     displayName = "Chocolate" #mandatory
     #updateJSONURL="http://myurl.me/" #optional
-    displayURL = "https://minecraft.curseforge.com/projects/chocolate" #optional
+    displayURL = "https://www.curseforge.com/minecraft/mc-mods/chocolate-fix" #optional
     #logoFile="icon.png" #optional
     #credits="As requested by reddit." #optional
     authors = "AlcatrazEscapee" #optional
@@ -23,7 +23,7 @@ issueTrackerURL = "https://github.com/alcatrazEscapee/chocolate/issues" #optiona
 [[dependencies.chocolate]]
     modId = "forge" #mandatory
     mandatory = true #mandatory
-    versionRange = "[34,)" #mandatory
+    versionRange = "[34.0.5,)" #mandatory
     ordering = "NONE"
     side = "BOTH"
 

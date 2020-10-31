@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BiomeContainer.class)
-@SuppressWarnings("ConstantConditions")
 public abstract class BiomeContainerMixin implements BiomeContainerBridge
 {
     @Shadow @Final private Biome[] biomes;
@@ -73,7 +72,7 @@ public abstract class BiomeContainerMixin implements BiomeContainerBridge
             if (biome != lastBiome)
             {
                 lastBiome = biome;
-                lastId = chocolate$biomeRegistry.getId(chocolate$biomeRegistry.get(((BiomeBridge) (Object) biome).bridge$getKey()));
+                lastId = chocolate$biomeRegistry.getId(chocolate$biomeRegistry.get(BiomeBridge.of(biome).bridge$getKey()));
             }
             biomeIds[i] = lastId;
         }

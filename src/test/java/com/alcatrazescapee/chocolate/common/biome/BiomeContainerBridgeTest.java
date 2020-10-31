@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SuppressWarnings("ConstantConditions")
 public class BiomeContainerBridgeTest
 {
     @Test
@@ -23,9 +22,9 @@ public class BiomeContainerBridgeTest
     {
         // Assert that the biome container mixin was successful
         final Registry<Biome> registry = ServerLifecycleHooks.getCurrentServer().registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-        final Object biomeContainer = new BiomeContainer(registry, new Biome[BiomeContainer.BIOMES_SIZE]);
+        final BiomeContainer container = new BiomeContainer(registry, new Biome[BiomeContainer.BIOMES_SIZE]);
 
-        assertTrue(biomeContainer instanceof BiomeContainerBridge);
+        assertDoesNotThrow(() -> BiomeContainerBridge.of(container));
     }
 
     @Test
@@ -43,7 +42,7 @@ public class BiomeContainerBridgeTest
         // Assert the biome container's registry is populated correctly
         final Registry<Biome> registry = ServerLifecycleHooks.getCurrentServer().registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         final BiomeContainer container = new BiomeContainer(registry, new Biome[BiomeContainer.BIOMES_SIZE]);
-        final BiomeContainerBridge bridge = (BiomeContainerBridge) container;
+        final BiomeContainerBridge bridge = BiomeContainerBridge.of(container);
 
         assertSame(registry, bridge.bridge$getActualBiomeRegistry());
     }
@@ -59,7 +58,7 @@ public class BiomeContainerBridgeTest
             biomes[i] = BiomeMaker.theVoidBiome();
         }
         final BiomeContainer container = new BiomeContainer(registry, biomes);
-        final BiomeContainerBridge bridge = (BiomeContainerBridge) container;
+        final BiomeContainerBridge bridge = BiomeContainerBridge.of(container);
 
         assertSame(biomes, bridge.bridge$getInternalBiomeArray());
         assertArrayEquals(biomes, bridge.bridge$getInternalBiomeArray());

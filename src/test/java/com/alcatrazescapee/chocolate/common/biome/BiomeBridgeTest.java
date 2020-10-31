@@ -9,22 +9,20 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SuppressWarnings("ConstantConditions")
 public class BiomeBridgeTest
 {
     @Test
-    public void testBiomeBridge()
+    public void testBiomeBridgeOf()
     {
         // Assert that the biome mixin was successful
-        final Object biome = BiomeMaker.theVoidBiome();
-        assertTrue(biome instanceof BiomeBridge);
+        assertDoesNotThrow(() -> BiomeBridge.of(BiomeMaker.theVoidBiome()));
     }
 
     @Test
     public void testKey()
     {
         // Assert the key setting and getting works correctly
-        final BiomeBridge biome = (BiomeBridge) (Object) BiomeMaker.theVoidBiome();
+        final BiomeBridge biome = BiomeBridge.of(BiomeMaker.theVoidBiome());
         final RegistryKey<Biome> key = Biomes.PLAINS;
 
         biome.bridge$setKey(key);
@@ -37,7 +35,7 @@ public class BiomeBridgeTest
     {
         // Assert the key inferring from the forge registry name works
         final Biome biome = BiomeMaker.theVoidBiome();
-        final BiomeBridge bridge = (BiomeBridge) (Object) biome;
+        final BiomeBridge bridge = BiomeBridge.of(biome);
 
         biome.setRegistryName("minecraft", "deep_ocean");
 
@@ -48,7 +46,7 @@ public class BiomeBridgeTest
     public void testNoKey()
     {
         // Assert that no key throws an error
-        final BiomeBridge biome = (BiomeBridge) (Object) BiomeMaker.theVoidBiome();
+        final BiomeBridge biome = BiomeBridge.of(BiomeMaker.theVoidBiome());
 
         assertThrows(IllegalStateException.class, biome::bridge$getKey);
     }

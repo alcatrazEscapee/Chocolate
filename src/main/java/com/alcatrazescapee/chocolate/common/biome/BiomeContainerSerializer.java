@@ -117,7 +117,6 @@ public final class BiomeContainerSerializer
      * @param biomeContainer The biome container
      * @param nbt            The nbt to put extra palette data onto
      */
-    @SuppressWarnings("ConstantConditions")
     public static void write(@Nullable BiomeContainer biomeContainer, CompoundNBT nbt)
     {
         if (biomeContainer != null && nbt.contains(BIOMES_KEY))
@@ -136,13 +135,9 @@ public final class BiomeContainerSerializer
             {
                 // Use the key on each biome and compute an ID mapping
                 final Biome biome = uniqueBiomes[i];
-                final RegistryKey<Biome> key = ((BiomeBridge) (Object) biome).bridge$getKey();
-                final int id = biomeRegistry.getId(biomeRegistry.get(key));
-                if (key != null)
-                {
-                    keysNbt.add(StringNBT.valueOf(key.location().toString()));
-                    ids[i] = id;
-                }
+                final RegistryKey<Biome> key = BiomeBridge.of(biome).bridge$getKey();
+                keysNbt.add(StringNBT.valueOf(key.location().toString()));
+                ids[i] = biomeRegistry.getId(biomeRegistry.get(key));
             }
 
             paletteNbt.putIntArray(IDS_KEY, ids);

@@ -20,7 +20,6 @@ import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SuppressWarnings("ConstantConditions")
 public class BiomeContainerSerializerTest
 {
     @Test
@@ -203,7 +202,7 @@ public class BiomeContainerSerializerTest
         final BiomeProvider overworldProvider = ServerLifecycleHooks.getCurrentServer().overworld().getChunkSource().getGenerator().getBiomeSource();
 
         final BiomeContainer container = new BiomeContainer(registry, pos, overworldProvider);
-        final BiomeContainerBridge bridge = (BiomeContainerBridge) container;
+        final BiomeContainerBridge bridge = BiomeContainerBridge.of(container);
         final CompoundNBT nbt = new CompoundNBT();
 
         BiomeContainerSerializer.write(container, nbt);

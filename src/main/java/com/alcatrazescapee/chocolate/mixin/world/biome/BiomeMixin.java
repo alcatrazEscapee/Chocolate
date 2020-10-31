@@ -14,8 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Biome.class)
-@SuppressWarnings("ConstantConditions")
-public abstract class BiomeMixin extends ForgeRegistryEntry.UncheckedRegistryEntry<Biome> implements BiomeBridge
+public abstract class BiomeMixin extends ForgeRegistryEntry<Biome> implements BiomeBridge
 {
     @Unique
     private RegistryKey<Biome> chocolate$key;

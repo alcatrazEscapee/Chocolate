@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BiomeRegistry.class)
-@SuppressWarnings("ConstantConditions")
 public abstract class BiomeRegistryMixin
 {
     /**
@@ -21,6 +20,6 @@ public abstract class BiomeRegistryMixin
     @Inject(method = "register", at = @At("RETURN"))
     private static void inject$register(int rawId, RegistryKey<Biome> key, Biome biome, CallbackInfoReturnable<Biome> cir)
     {
-        ((BiomeBridge) (Object) biome).bridge$setKey(key);
+        BiomeBridge.of(biome).bridge$setKey(key);
     }
 }
