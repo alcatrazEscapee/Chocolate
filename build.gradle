@@ -46,7 +46,7 @@ minecraft {
     if (useOfficial) {
         mappings channel: 'official', version: mc_version
     } else {
-        mappings channel: 'snapshot', version: 'complete-20200912-1.16.3-v5'
+        mappings channel: 'snapshot', version: mappings_version
     }
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 

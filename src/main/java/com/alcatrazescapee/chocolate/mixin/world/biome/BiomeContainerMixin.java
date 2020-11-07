@@ -40,8 +40,7 @@ public abstract class BiomeContainerMixin implements BiomeContainerBridge
     /**
      * Verifies that the passed in biome registry was of a wider type than vanilla assumes it to be.
      * This is *technically* breaking the vanilla contract here, and it may cause issues.
-     * If this is the case, we dump *A WHOLE LOAD* of information into the log to try and diagnose the cause
-     * This is done in order to ensure that when serializing, we have access to a full registry, and can safeguard against potential error propigation later.
+     * This is done in order to ensure that when serializing, we have access to a full registry, and can safeguard against potential error propagation later.
      */
     @Inject(method = "<init>(Lnet/minecraft/util/IObjectIntIterable;[Lnet/minecraft/world/biome/Biome;)V", at = @At("RETURN"))
     private void inject$init(IObjectIntIterable<Biome> biomeRegistry, Biome[] biomes, CallbackInfo ci)

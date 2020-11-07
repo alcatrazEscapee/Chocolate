@@ -4,13 +4,10 @@
   "package": "com.alcatrazescapee.chocolate.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "minecraftforge.common.ForgeHooksMixin",
-    "minecraftforge.registries.ForgeRegistryEntryAccessor",
     "world.biome.BiomeContainerMixin",
     "world.biome.BiomeMixin",
     "world.biome.BiomeRegistryMixin",
-    "world.chunk.storage.ChunkSerializerMixin",
-    "world.gen.FlatGenerationSettingsMixin"
+    "world.chunk.storage.ChunkSerializerMixin"
   ],
   "client": [
   ],
