@@ -4,6 +4,8 @@
   "package": "com.alcatrazescapee.chocolate.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "util.registry.SimpleRegistryAccessor",
+    "util.registry.SimpleRegistryMixin",
     "world.biome.BiomeContainerMixin",
     "world.biome.BiomeMixin",
     "world.biome.BiomeRegistryMixin",
