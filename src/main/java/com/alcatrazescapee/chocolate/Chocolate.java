@@ -1,6 +1,6 @@
 /*
- * Part of the Suck Eggs Mod by AlcatrazEscapee
- * Work under Copyright. See the project LICENSE.md for details.
+ * Part of the Chocolate mod by AlcatrazEscapee.
+ * Licensed under the MIT License. See LICENSE.md for details.
  */
 
 package com.alcatrazescapee.chocolate;

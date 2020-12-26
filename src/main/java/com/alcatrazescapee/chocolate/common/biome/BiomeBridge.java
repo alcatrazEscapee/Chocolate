@@ -1,3 +1,8 @@
+/*
+ * Part of the Chocolate mod by AlcatrazEscapee.
+ * Licensed under the MIT License. See LICENSE.md for details.
+ */
+
 package com.alcatrazescapee.chocolate.common.biome;
 
 import net.minecraft.util.RegistryKey;
@@ -12,7 +17,7 @@ public interface BiomeBridge
 {
     /**
      * At compile time this will only allow biomes (which will at runtime implement {@link BiomeBridge}) to be casted.
-     * This avoids IDE constant conditions warnings, or supressing them and obscuring actual errors
+     * This avoids IDE constant conditions warnings, or suppressing them and obscuring actual errors
      */
     @SuppressWarnings("ConstantConditions")
     static BiomeBridge of(Biome biome)

@@ -1,6 +1,6 @@
 /*
- * Work under Copyright. Licensed under the EUPL.
- * See the project README.md and LICENSE.txt for more information.
+ * Part of the Chocolate mod by AlcatrazEscapee.
+ * Licensed under the MIT License. See LICENSE.md for details.
  */
 
 @MethodsReturnNonnullByDefault
