@@ -15,8 +15,6 @@ Chocolate fixes this by adding a palette of biomes to each chunk when it is save
 **[MC-197616](https://bugs.mojang.com/browse/MC-197616): Data Pack Biomes with the "Single Biome" world preset causes massive log spam and invalid client biomes.**
 
 Related to the above issue, when using the "Single Biome" world type, biomes in world do not exist in the runtime biome registry. Chocolate is able to fix biome serialization over the network in this case, which prevents the aforementioned ill effects when trying to deserialize invalid biomes on a client.
-- Fixes [MC-202036](https://bugs.mojang.com/browse/MC-202036) : Biomes are saved to chunks as raw IDs, and can become shuffled when adding new biomes (either via data packs or mods), or the registration order of existing biomes changes. Chocolate fixes this by adding a palette to the chunk save data, and guards biome serialization with this registry key based approach.
-  - Note: Forge has *mostly* fixed this for modded biomes by serializing the forge registry. However, this is an incomplete fix, as it does not take into account data pack biomes and so the issue may still occur.
 
 *Chocolate also previously fixed [MC-197860](https://bugs.mojang.com/browse/MC-197860), but that has been incorporated into Forge as of 35.1.32, and as such is no longer also fixed by Chocolate.* 
 
