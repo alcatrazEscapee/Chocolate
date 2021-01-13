@@ -23,7 +23,7 @@ issueTrackerURL = "https://github.com/alcatrazEscapee/Chocolate/issues" #optiona
 [[dependencies.chocolate]]
     modId = "forge" #mandatory
     mandatory = true #mandatory
-    versionRange = "[35.0.3,)" #mandatory
+    versionRange = "[35.1.32,)" #mandatory
     ordering = "NONE"
     side = "BOTH"
 

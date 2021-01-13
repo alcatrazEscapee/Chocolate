@@ -6,10 +6,19 @@ This mod exists to fix vanilla bugs - mostly to do with custom world generation 
 
 ### Fixes
 
+**[MC-202036](https://bugs.mojang.com/browse/MC-202036): Biomes IDs may become shuffled when adding or removing biomes**
+
+In vanilla, adding or removing a biome datapack may lead to shuffled biome IDs in existing worlds. This has a much larger impact on modded, as adding or removing biome mods, or even blacklisting certain biomes may cause biomes in existing worlds to shuffle. In early versions of Forge for 1.16, this also could occur if a mod changed the order of their biome registrations (Thankfully, this was fixed as of Forge 34.1.42).
+
+Chocolate fixes this by adding a palette of biomes to each chunk when it is saved. This means chunks saved while this mod is active will never experience biome shuffling as long as the biome exists. If a biome is removed from the world, Chocolate will detect this also and re-generate the biome according to the vanilla world generation at that location (as opposed to assigning it a random biome based on the previous ID, as in vanilla).
+
+**[MC-197616](https://bugs.mojang.com/browse/MC-197616): Data Pack Biomes with the "Single Biome" world preset causes massive log spam and invalid client biomes.**
+
+Related to the above issue, when using the "Single Biome" world type, biomes in world do not exist in the runtime biome registry. Chocolate is able to fix biome serialization over the network in this case, which prevents the aforementioned ill effects when trying to deserialize invalid biomes on a client.
 - Fixes [MC-202036](https://bugs.mojang.com/browse/MC-202036) : Biomes are saved to chunks as raw IDs, and can become shuffled when adding new biomes (either via data packs or mods), or the registration order of existing biomes changes. Chocolate fixes this by adding a palette to the chunk save data, and guards biome serialization with this registry key based approach.
-  - Note: Forge has *mostly* fixed this for modded biomes by serializing the forge registry. However, this is an incomplete fix, as it does not take into account data pack biomes and so the issue may still occur. 
-- Fixes [MC-197860](https://bugs.mojang.com/browse/MC-197860) : When removing a datapack dimension, this can cause vanilla dimensions to fail to be deserialized from json, and then removed. This results in the permanent deletion of the Nether and End biomes. The root cause is a bug in [Data Fixer Upper](https://github.com/Mojang/DataFixerUpper/pull/55). However, due to the low likelihood of that getting resolved for 1.16, it is fixed in Chocolate by redirecting the codec construction to use a modified version. Thus, when removing custom dimensions, only the ones actually being removed will be deleted from the save, and all other dimensions will still exist.
-- Fixes [MC-197616](https://bugs.mojang.com/browse/MC-197616) : Using a data pack biome with the "Single Biome" world preset causes massive log spam, and invalid biomes to be detected on the client. This occurs in vanilla due to biomes not existing in the runtime dynamic registry instance. Chocolate fixes this by tracking biome registry keys, and transmuting biomes at runtime where necessary into their current registry present objects.
+  - Note: Forge has *mostly* fixed this for modded biomes by serializing the forge registry. However, this is an incomplete fix, as it does not take into account data pack biomes and so the issue may still occur.
+
+*Chocolate also previously fixed [MC-197860](https://bugs.mojang.com/browse/MC-197860), but that has been incorporated into Forge as of 35.1.32, and as such is no longer also fixed by Chocolate.* 
 
 ### Design
 

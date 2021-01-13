@@ -24,6 +24,7 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraftforge.common.util.Constants;
 
 import com.alcatrazescapee.chocolate.common.ChocolateConfig;
+import com.alcatrazescapee.chocolate.common.Debug;
 
 /**
  * Advanced {@link BiomeContainer} serialization, which stores an additional palette to chunk data.
@@ -40,7 +41,7 @@ public final class BiomeContainerSerializer
 
     public static BiomeContainer read(Registry<Biome> biomeRegistry, ChunkPos pos, BiomeProvider biomeProvider, @Nullable int[] biomeData, CompoundNBT nbt)
     {
-        if (biomeData != null && nbt.contains(PALETTE_KEY, Constants.NBT.TAG_COMPOUND))
+        if (biomeData != null && nbt.contains(PALETTE_KEY, Constants.NBT.TAG_COMPOUND) && Debug.ENABLE_BIOME_FIXES)
         {
             // Read and apply additional palette data
             final CompoundNBT paletteNbt = nbt.getCompound(PALETTE_KEY);
@@ -124,7 +125,7 @@ public final class BiomeContainerSerializer
      */
     public static void write(@Nullable BiomeContainer biomeContainer, CompoundNBT nbt)
     {
-        if (biomeContainer != null && nbt.contains(BIOMES_KEY))
+        if (biomeContainer != null && nbt.contains(BIOMES_KEY) && Debug.ENABLE_BIOME_FIXES)
         {
             // Write additional palette data
             final CompoundNBT paletteNbt = new CompoundNBT();
