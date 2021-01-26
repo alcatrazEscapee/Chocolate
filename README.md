@@ -8,9 +8,12 @@ This mod exists to fix vanilla bugs - mostly to do with custom world generation 
 
 **[MC-202036](https://bugs.mojang.com/browse/MC-202036): Biomes IDs may become shuffled when adding or removing biomes**
 
-In vanilla, adding or removing a biome datapack may lead to shuffled biome IDs in existing worlds. This has a much larger impact on modded, as adding or removing biome mods, or even blacklisting certain biomes may cause biomes in existing worlds to shuffle. In early versions of Forge for 1.16, this also could occur if a mod changed the order of their biome registrations (Thankfully, this was fixed as of Forge 34.1.42).
+In vanilla, adding or removing a biome datapack may lead to shuffled biome IDs in existing worlds. This has a much larger impact on modded, as adding or removing biome mods, or even blacklisting certain biomes may cause biomes in existing worlds to shuffle, or even if a mod changed the order of their biome registrations.
 
 Chocolate fixes this by adding a palette of biomes to each chunk when it is saved. This means chunks saved while this mod is active will never experience biome shuffling as long as the biome exists. If a biome is removed from the world, Chocolate will detect this also and re-generate the biome according to the vanilla world generation at that location (as opposed to assigning it a random biome based on the previous ID, as in vanilla).
+
+**Update 2021-01-26:** Forge attempted (unsuccessfully) to fix this issue in 34.1.42. Several weeks later, they did successfully fix this issue (as per my own testing) in 36.0.2. Their fix does not conflict with Chocolate's, which incidentally also fixes MC-197616 (which Forge does not). However, if you are here for biome ID shuffling, I recommend you just update Forge instead.
+
 
 **[MC-197616](https://bugs.mojang.com/browse/MC-197616): Data Pack Biomes with the "Single Biome" world preset causes massive log spam and invalid client biomes.**
 
